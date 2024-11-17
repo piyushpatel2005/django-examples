@@ -60,3 +60,7 @@ home
 ``` 
 
 There will be unapplied migrations which you can apply using `python manage.py migrate`.
+
+## Templates
+
+- Tags and filters

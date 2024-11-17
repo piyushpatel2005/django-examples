@@ -13,3 +13,13 @@ def about (request):
 def version_info (request):
     content = {"version" : "1.0"}
     return JsonResponse(content)
+
+def news (request):
+    data = {
+        'news': [
+            "RiffMates now has a news page!",
+            "RiffMates has its first web page",
+        ],
+    }
+
+    return render(request, 'news.html', data)
