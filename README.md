@@ -102,5 +102,10 @@ python manage.py shell
 
 - Using separate `urls.py` file for each app
 - Create listing page
+- Popular field options
+- Common fields for models `EmailField`, `URLField`, `SlugField`, `TextField`, `IntegerField`
 
 ### Pagination
+
+- How to implement pagination
+
