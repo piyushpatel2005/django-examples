@@ -109,3 +109,9 @@ python manage.py shell
 
 - How to implement pagination
 
+## Fixtures
+
+```shell
+python manage.py dumpdata > fixtures.json
+python manage.py loaddata fixtures.json
+```
