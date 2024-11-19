@@ -115,3 +115,17 @@ python manage.py shell
 python manage.py dumpdata > fixtures.json
 python manage.py loaddata fixtures.json
 ```
+
+## Django Admin
+
+- Create admin user
+
+```shell
+python manage.py createsuperuser
+```
+
+- Modifying display of the listings
+- Adding search functionality
+- Adding filters
+- Facets
+- Cross-linking related objects
