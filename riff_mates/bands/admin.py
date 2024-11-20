@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.utils.html import format_html
+from django.utils.html import format_html, mark_safe
 from django.urls import reverse
 
-from bands.models import Musician, Band
+from bands.models import Musician, Band, Room, Venue
 
 from datetime import date, datetime
 
@@ -61,4 +61,46 @@ class MusicianAdmin(admin.ModelAdmin):
 
 @admin.register(Band)
 class BandAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("id", "name", "show_members", )
+    search_fields = ("name",)
+
+    def show_members(self, obj):
+        musicians = obj.musicians.all()
+        links = []
+        url = reverse ("admin:bands_musician_changelist")
+
+        for musician in musicians:
+            parm = f"?id={musician.id}"
+            link = format_html('<a href="{}">{}</a>', url + parm, musician.last_name)
+            links.append(link)
+
+        return mark_safe(", ".join(links))
+
+    show_members.short_description = "Members"
+
+
+@admin.register(Venue)
+class VenueAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "show_rooms",)
+    search_fields = ("name",)
+
+    def show_rooms(self, obj):
+        rooms = obj.room_set.all()
+        if len(rooms) == 0:
+            return format_html("<i>None</i>")
+        
+        plural = ""
+        if len(rooms) > 1:
+            plural = "s"
+        parm = "?id__in=" + ",".join([str(r.id) for r in rooms])
+        url = reverse("admin:bands_room_changelist") + parm
+
+        return format_html('<a href="{}">Room{}</a>', url, plural)
+
+    show_rooms.short_description = "Rooms"
+
+
+@admin.register(Room)
+class RoomAdmin(admin.ModelAdmin):
+    list_display = ("id", "name",)
+    search_fields = ("name",)

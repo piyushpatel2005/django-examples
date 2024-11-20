@@ -129,3 +129,6 @@ python manage.py createsuperuser
 - Adding filters
 - Facets
 - Cross-linking related objects
+- Model Meta properties (ordering, indexes, permissions, etc.)
+- Uniqueness (unique_together)
+- Modifying object names in Django Admin (verbose_name, verbose_name_plural)
