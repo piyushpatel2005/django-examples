@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.utils.html import format_html, mark_safe
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
 from django.urls import reverse
 
-from bands.models import Musician, Band, Room, Venue
+from bands.models import Musician, Band, Room, Venue, UserProfile
 
 from datetime import date, datetime
 
@@ -104,3 +106,15 @@ class VenueAdmin(admin.ModelAdmin):
 class RoomAdmin(admin.ModelAdmin):
     list_display = ("id", "name",)
     search_fields = ("name",)
+
+
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
+    can_delete = False
+
+
+class UserAdmin(BaseUserAdmin):
+    inlines = (UserProfileInline, )
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)

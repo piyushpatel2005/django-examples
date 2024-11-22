@@ -132,3 +132,9 @@ python manage.py createsuperuser
 - Model Meta properties (ordering, indexes, permissions, etc.)
 - Uniqueness (unique_together)
 - Modifying object names in Django Admin (verbose_name, verbose_name_plural)
+
+## User Management
+
+- Authentication and Authorization
+- Middleware (comes between route and the view)
+
