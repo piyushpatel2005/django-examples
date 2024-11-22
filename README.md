@@ -137,4 +137,7 @@ python manage.py createsuperuser
 
 - Authentication and Authorization
 - Middleware (comes between route and the view)
+- User Profiles
+- Restricting access to views (`@login_required`)
+
 

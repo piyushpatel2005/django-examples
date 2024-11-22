@@ -21,6 +21,7 @@ from home import views as home_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
     path('credits/', home_views.credits, name='credits'),
     path('about/', home_views.about, name='about'),
     path('version/', home_views.version, name='version'),
