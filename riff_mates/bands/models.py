@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Musician(models.Model):
     first_name = models.CharField(max_length=50)
@@ -50,3 +52,14 @@ class UserProfile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     musician_profiles = models.ManyToManyField(Musician, blank=True)
     venues_controlled = models.ManyToManyField(Venue, blank=True)
+
+@receiver(post_save, sender=User)
+def user_post_save(sender, **kwargs):
+    # Create UserProfile if Usr object is new and not loaded from fixtures
+    if kwargs['created'] and not kwargs['raw']:
+        user = kwargs['instance']
+        try:
+            # Check if UserProfile already exists
+            UserProfile.objects.get(user=user)
+        except UserProfile.DoesNotExist:
+            UserProfile.objects.create(user=user)
