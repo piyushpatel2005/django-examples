@@ -145,4 +145,5 @@ python manage.py createsuperuser
     - Setup views
     - Set up email backend
 
-
+## Forms
+- Web forms
