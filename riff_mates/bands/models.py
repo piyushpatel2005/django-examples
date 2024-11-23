@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.contrib.auth.signals import user_login_failed
 from django.dispatch import receiver
 
 class Musician(models.Model):
@@ -63,3 +64,10 @@ def user_post_save(sender, **kwargs):
             UserProfile.objects.get(user=user)
         except UserProfile.DoesNotExist:
             UserProfile.objects.create(user=user)
+
+@receiver(user_login_failed)
+def track_login_failure(sender, **kwargs):
+    username = kwargs["credentials"]["username"]
+    url = kwargs["request"].path
+
+    print(f"LOGIN Failure by {username} for {url}")

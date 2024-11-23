@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import Http404
 from bands.models import Band, Musician, Venue
 
@@ -123,3 +123,14 @@ def musician_restricted(request, musician_id):
     }
 
     return render (request, "general.html", data)
+
+def has_venue(user):
+    try:
+        return user.userprofile.venues_controlled.count() > 0
+    except AttributeError:
+        return False
+
+
+@user_passes_test(has_venue)
+def venues_restricted(request):
+    return venues(request)
