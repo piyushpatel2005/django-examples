@@ -149,3 +149,4 @@ python manage.py createsuperuser
 - Web forms
 - CSRF
 - Django ModelForm
+- Serving Static files
