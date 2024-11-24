@@ -147,3 +147,4 @@ python manage.py createsuperuser
 
 ## Forms
 - Web forms
+- CSRF
