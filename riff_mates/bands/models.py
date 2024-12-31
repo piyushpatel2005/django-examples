@@ -18,6 +18,8 @@ class Musician(models.Model):
 
 class Venue (models.Model):
     name = models.CharField(max_length=20)
+    description = models.TextField(blank=True)
+    picture = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]

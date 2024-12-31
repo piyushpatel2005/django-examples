@@ -122,6 +122,8 @@ python manage.py loaddata fixtures.json
 
 ```shell
 python manage.py createsuperuser
+Username: admin
+Password: Password@123
 ```
 
 - Modifying display of the listings
