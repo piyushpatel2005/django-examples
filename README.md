@@ -154,3 +154,9 @@ Password: Password@123
 
 ## Serving Static files
 - Uploading files
+
+
+## Projects
+
+- Portfolio website
+- Blog
