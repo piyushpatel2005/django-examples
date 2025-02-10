@@ -73,6 +73,7 @@ There will be unapplied migrations which you can apply using `python manage.py m
 
 ```shell
 python manage.py makemigrations bands
+python manage.py sqlmigrate bands 0001 # see sql commands
 python manage.py migrate
 python manage.py dbshell
 ```
