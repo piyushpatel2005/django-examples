@@ -21,3 +21,5 @@ In order to get `EMAIL_HOST_PASSWORD`, you need 2-step verification enabled and 
 
 - Adding comments (Displaying form as p, table, fieldset, etc., Using pluralize filter, Displaying form errors)
 - Adding tagging for blog posts
+- Recommend similar posts by matching tags, number of matched tags order by publish date descending limiting to 4
+- Custom template tags and filters (simple_tag, inclusion_tag)
