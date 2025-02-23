@@ -22,3 +22,11 @@ Password: PassUser123
 - Add ability to display quick session messages using Django messages framework
 - Add custom Email backend to authenticate using email address
 - Prevent users from using an existing email address
+- Update your `/etc/hosts` file to serve the traffic to `mysite.com` domain. Some hosts need valid hosts to work propertly for OAuth2. Use the command below to run local server. Django extensions will generate a key and certificate automatically.
+
+```bash
+python manage.py runserver_plus --cert-file cert.crt
+```
+
+- Add social authentication using Google
+- Add ability to create profile when using social authentication and add it to the social auth pipeline in `settings.py`
