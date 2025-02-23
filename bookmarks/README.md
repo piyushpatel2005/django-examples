@@ -30,3 +30,5 @@ python manage.py runserver_plus --cert-file cert.crt
 
 - Add social authentication using Google
 - Add ability to create profile when using social authentication and add it to the social auth pipeline in `settings.py`
+- Create images app to bookmark images
+- Create image model with many to many relation with user
