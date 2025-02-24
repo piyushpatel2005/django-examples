@@ -32,3 +32,6 @@ python manage.py runserver_plus --cert-file cert.crt
 - Add ability to create profile when using social authentication and add it to the social auth pipeline in `settings.py`
 - Create images app to bookmark images
 - Create image model with many to many relation with user
+- Posting image content from other sites
+- Created form for image creation with custom clean, save methods
+- Added bookmarklet to bookmark images
