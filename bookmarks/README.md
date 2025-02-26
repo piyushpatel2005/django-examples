@@ -35,3 +35,5 @@ python manage.py runserver_plus --cert-file cert.crt
 - Posting image content from other sites
 - Created form for image creation with custom clean, save methods
 - Added bookmarklet to bookmark images
+- Create image detail view
+- Add thumbnails using `easy-thumbnails`
